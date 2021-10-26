@@ -1,0 +1,152 @@
+﻿<Window x:Class="VetClinic_Drygval_Pokhilov_3.Windows.EnteredWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VetClinic_Drygval_Pokhilov_3.Windows"
+        mc:Ignorable="d"
+        MinHeight="700" MinWidth="1155"
+        MaxHeight="700" MaxWidth="1155"
+        Title="EnteredWindow" Height="700" Width="1155">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="850"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="29"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="29"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="1"
+                    Grid.Column="1"
+                    Background="#D9F1CD"
+                    CornerRadius="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="95"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="21"/>
+                        <RowDefinition Height="9"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="45"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="170"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="15"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="1" Grid.Column="1"
+                               Source="../Sources/Avatar.png"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="Дрыгваль В.С"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               FontWeight="Bold" FontSize="18"/>
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="Ветеринарный хирург"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               FontWeight="Light" FontSize="13"/>
+                    <Border Grid.Row="7"
+                            Grid.Column="1"
+                            Background="White"
+                            CornerRadius="10">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="4" Direction="-90" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Button Background="Transparent"
+                                FontSize="18" FontWeight="Bold"
+                                BorderBrush="Transparent"
+                                Width="220" Click="btn_click_tasks">
+                            <Grid Width="220">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../Sources/Vector.png" Width="20"/>
+                                <TextBlock Grid.Column="2" Text="Записи" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    </Border>
+                    <Border Grid.Row="9"
+                            Grid.Column="1"
+                            Background="White"
+                            CornerRadius="10">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="4" Direction="-90" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Button Background="Transparent"
+                                FontSize="18" FontWeight="Bold"
+                                BorderBrush="Transparent"
+                                Click="btn_click_clients">
+                            <Grid Width="220">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../Sources/Pawprint.png" Width="20"/>
+                                <TextBlock Grid.Column="2" Text="Клиенты" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    </Border>
+                    <Border Grid.Row="11"
+                            Grid.Column="1"
+                            Background="White"
+                            CornerRadius="10">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="4" Direction="-90" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Button Background="Transparent"
+                                FontSize="18" FontWeight="Bold"
+                                BorderBrush="Transparent">
+                            <Grid Width="220">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="../Sources/Pill.png" Width="20"/>
+                                <TextBlock Grid.Column="2" Text="Болезни" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    </Border>
+                    <Border Grid.Row="13"
+                            Grid.Column="1"
+                            Background="#FF8585"
+                            CornerRadius="10">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="4" Direction="-90" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Button Background="Transparent"
+                                FontSize="18" FontWeight="Bold"
+                                BorderBrush="Transparent"
+                                Width="220" Click="btn_click_exit">
+                            <TextBlock Grid.Column="2" Text="Выход" VerticalAlignment="Center" Foreground="White">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect BlurRadius="2" Direction="-90" ShadowDepth="0"/>
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        </Button>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Frame NavigationUIVisibility="Hidden" Name="MainFrame"/>
+        </Grid>
+    </Grid>
+</Window>

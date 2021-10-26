@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище VeterinarClinic_Drygval_PokhilovModelContainer" CdmEntityContainer="VeterinarClinic_Drygval_PokhilovEntities">
+    <EntitySetMapping Name="Animal">
+      <EntityTypeMapping TypeName="VeterinarClinic_Drygval_PokhilovModel.Animal">
+        <MappingFragment StoreEntitySet="Animal">
+          <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
+          <ScalarProperty Name="idClient" ColumnName="idClient" />
+          <ScalarProperty Name="idAnimalType" ColumnName="idAnimalType" />
+          <ScalarProperty Name="idGender" ColumnName="idGender" />
+          <ScalarProperty Name="AnimalName" ColumnName="AnimalName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnimalDisease">
+      <EntityTypeMapping TypeName="VeterinarClinic_Drygval_PokhilovModel.AnimalDisease">
+        <MappingFragment StoreEntitySet="AnimalDisease">
+          <ScalarProperty Name="idAnimalDisease" ColumnName="idAnimalDisease" />
+          <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
+          <ScalarProperty Name="idDisease" ColumnName="idDisease" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnimalType">
+      <EntityTypeMapping TypeName="VeterinarClinic_Drygval_PokhilovModel.AnimalType">
+        <MappingFragment StoreEntitySet="AnimalType">
+          <ScalarProperty Name="idAnimalType" ColumnName="idAnimalType" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="VeterinarClinic_Drygval_PokhilovModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="idClient" ColumnName="idClient" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disease">
+      <EntityTypeMapping TypeName="VeterinarClinic_Drygval_PokhilovModel.Disease">
+        <MappingFragment StoreEntitySet="Disease">
+          <ScalarProperty Name="idDisease" ColumnName="idDisease" />
+          <ScalarProperty Name="DeseaseName" ColumnName="DeseaseName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gender">
+      <EntityTypeMapping TypeName="VeterinarClinic_Drygval_PokhilovModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="idGender" ColumnName="idGender" />
+          <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="VeterinarClinic_Drygval_PokhilovModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="idRole" ColumnName="idRole" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staff">
+      <EntityTypeMapping TypeName="VeterinarClinic_Drygval_PokhilovModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="idStaff" ColumnName="idStaff" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastNane" ColumnName="LastNane" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="idRole" ColumnName="idRole" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Task">
+      <EntityTypeMapping TypeName="VeterinarClinic_Drygval_PokhilovModel.Task">
+        <MappingFragment StoreEntitySet="Task">
+          <ScalarProperty Name="idTask" ColumnName="idTask" />
+          <ScalarProperty Name="DateTask" ColumnName="DateTask" />
+          <ScalarProperty Name="idStaff" ColumnName="idStaff" />
+          <ScalarProperty Name="idClient" ColumnName="idClient" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

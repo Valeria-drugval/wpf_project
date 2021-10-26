@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VeterinarClinic_Drygval_PokhilovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="idAnimal" />
+    </Key>
+    <Property Name="idAnimal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idClient" Type="Int32" Nullable="false" />
+    <Property Name="idAnimalType" Type="Int32" Nullable="false" />
+    <Property Name="idGender" Type="Int32" Nullable="false" />
+    <Property Name="AnimalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AnimalType" Relationship="Self.FK__Animal__idAnimal__3F466844" FromRole="Animal" ToRole="AnimalType" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Animal__idClient__3E52440B" FromRole="Animal" ToRole="Client" />
+    <NavigationProperty Name="Gender" Relationship="Self.FK__Animal__idGender__403A8C7D" FromRole="Animal" ToRole="Gender" />
+    <NavigationProperty Name="AnimalDisease" Relationship="Self.FK__AnimalDis__idAni__440B1D61" FromRole="Animal" ToRole="AnimalDisease" />
+  </EntityType>
+  <EntityType Name="AnimalDisease">
+    <Key>
+      <PropertyRef Name="idAnimalDisease" />
+    </Key>
+    <Property Name="idAnimalDisease" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idAnimal" Type="Int32" Nullable="false" />
+    <Property Name="idDisease" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK__AnimalDis__idAni__440B1D61" FromRole="AnimalDisease" ToRole="Animal" />
+    <NavigationProperty Name="Disease" Relationship="Self.FK__AnimalDis__idDis__44FF419A" FromRole="AnimalDisease" ToRole="Disease" />
+  </EntityType>
+  <EntityType Name="AnimalType">
+    <Key>
+      <PropertyRef Name="idAnimalType" />
+    </Key>
+    <Property Name="idAnimalType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK__Animal__idAnimal__3F466844" FromRole="AnimalType" ToRole="Animal" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK__Animal__idClient__3E52440B" FromRole="Client" ToRole="Animal" />
+    <NavigationProperty Name="Task" Relationship="Self.FK__Task__idClient__4D94879B" FromRole="Client" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Disease">
+    <Key>
+      <PropertyRef Name="idDisease" />
+    </Key>
+    <Property Name="idDisease" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeseaseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AnimalDisease" Relationship="Self.FK__AnimalDis__idDis__44FF419A" FromRole="Disease" ToRole="AnimalDisease" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="idGender" />
+    </Key>
+    <Property Name="idGender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GenderName" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK__Animal__idGender__403A8C7D" FromRole="Gender" ToRole="Animal" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="idRole" />
+    </Key>
+    <Property Name="idRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK__Staff__idRole__49C3F6B7" FromRole="Role" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="idStaff" />
+    </Key>
+    <Property Name="idStaff" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastNane" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idRole" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.FK__Staff__idRole__49C3F6B7" FromRole="Staff" ToRole="Role" />
+    <NavigationProperty Name="Task" Relationship="Self.FK__Task__idStaff__4CA06362" FromRole="Staff" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="idTask" />
+    </Key>
+    <Property Name="idTask" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateTask" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="idStaff" Type="Int32" Nullable="false" />
+    <Property Name="idClient" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Task__idClient__4D94879B" FromRole="Task" ToRole="Client" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK__Task__idStaff__4CA06362" FromRole="Task" ToRole="Staff" />
+  </EntityType>
+  <Association Name="FK__Animal__idAnimal__3F466844">
+    <End Role="AnimalType" Type="Self.AnimalType" Multiplicity="1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AnimalType">
+        <PropertyRef Name="idAnimalType" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="idAnimalType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Animal__idClient__3E52440B">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="idClient" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="idClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Animal__idGender__403A8C7D">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="idGender" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="idGender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AnimalDis__idAni__440B1D61">
+    <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+    <End Role="AnimalDisease" Type="Self.AnimalDisease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="idAnimal" />
+      </Principal>
+      <Dependent Role="AnimalDisease">
+        <PropertyRef Name="idAnimal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AnimalDis__idDis__44FF419A">
+    <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+    <End Role="AnimalDisease" Type="Self.AnimalDisease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disease">
+        <PropertyRef Name="idDisease" />
+      </Principal>
+      <Dependent Role="AnimalDisease">
+        <PropertyRef Name="idDisease" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Task__idClient__4D94879B">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="idClient" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="idClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Staff__idRole__49C3F6B7">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="idRole" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="idRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Task__idStaff__4CA06362">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="idStaff" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="idStaff" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VeterinarClinic_Drygval_PokhilovEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Animal" EntityType="Self.Animal" />
+    <EntitySet Name="AnimalDisease" EntityType="Self.AnimalDisease" />
+    <EntitySet Name="AnimalType" EntityType="Self.AnimalType" />
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="Disease" EntityType="Self.Disease" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" />
+    <EntitySet Name="Task" EntityType="Self.Task" />
+    <AssociationSet Name="FK__Animal__idAnimal__3F466844" Association="Self.FK__Animal__idAnimal__3F466844">
+      <End Role="AnimalType" EntitySet="AnimalType" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Animal__idClient__3E52440B" Association="Self.FK__Animal__idClient__3E52440B">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Animal__idGender__403A8C7D" Association="Self.FK__Animal__idGender__403A8C7D">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AnimalDis__idAni__440B1D61" Association="Self.FK__AnimalDis__idAni__440B1D61">
+      <End Role="Animal" EntitySet="Animal" />
+      <End Role="AnimalDisease" EntitySet="AnimalDisease" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AnimalDis__idDis__44FF419A" Association="Self.FK__AnimalDis__idDis__44FF419A">
+      <End Role="Disease" EntitySet="Disease" />
+      <End Role="AnimalDisease" EntitySet="AnimalDisease" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Task__idClient__4D94879B" Association="Self.FK__Task__idClient__4D94879B">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Staff__idRole__49C3F6B7" Association="Self.FK__Staff__idRole__49C3F6B7">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Task__idStaff__4CA06362" Association="Self.FK__Task__idStaff__4CA06362">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
